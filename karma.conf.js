@@ -1,25 +1,41 @@
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = require("./webpack.test.js");
 
-module.exports = function(config) {
-    config.set({
-        frameworks: ["jasmine"],
+module.exports = (config) => {
+  let focusGlob = "*";
+  if (process.env.npm_config_focus) {
+    focusGlob = `*${process.env.npm_config_focus}*`;
+  }
 
-        files: [
-            'spec/greeter.test.ts',
-        ],
+  config.set({
+    frameworks: ["jasmine"],
 
-        preprocessors: {
-            'spec/**/*.ts': ['webpack'],
-        },
+    files: [
+      { pattern: `src/${focusGlob}.ts`, watched: false },
+      { pattern: `src/**/${focusGlob}.ts`, watched: false },
+      { pattern: `spec/**/${focusGlob}.ts`, watched: false },
+    ],
 
-        webpack: webpackConfig, 
+    preprocessors: {
+      "src/**/*.ts": ["webpack"],
+    },
 
-        reporters: ["progress"],
+    webpack: webpackConfig,
 
-        browsers: ["ChromeHeadless"],
+    reporters: ["mocha", "coverage-istanbul"],
 
-        mime: {
-            'text/x-typescript': ['ts']
-        }
-  })
-}
+    browsers: ["ChromeHeadless"],
+
+    coverageIstanbulReporter: {
+      fixWebpackSourcePaths: true,
+      reports: ["html", "lcovonly"],
+      skipFilesWithNoCoverage: false,
+    },
+
+    mime: {
+      "text/x-typescript": ["ts"],
+    },
+  });
+
+  const testPath = `spec/**/${focusGlob}.ts`;
+  config.preprocessors[testPath] = ["webpack"];
+};
