@@ -10,6 +10,7 @@ run  `npm run install`
 ## build
 Add an [Etsy API key](https://www.etsy.com/developers/documentation/getting_started/register) to `src/credentials.ts`
 run `npm run build`
+open index.html
 
 ## test
 run `npm run test` (no tests implemented)
