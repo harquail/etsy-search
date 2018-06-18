@@ -2,7 +2,7 @@ import { Promise } from "es6-promise";
 import { Credentials } from "./credentials";
 
 const listingEndpoint = `https://openapi.etsy.com/v2/listings/active.js`;
-const listingsFields = ["title", "description", "price", "url"];
+const listingsFields = ["title", "description", "price", "url", "listing_id"];
 const listingsIncludes = "Images:1:0";
 const listingsSort = "score";
 (window as any).loadJSONP = {

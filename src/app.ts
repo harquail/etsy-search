@@ -10,9 +10,10 @@ const updateListings = (b) => {
     if (listing.error_messages) {
       continue; // skip listings that have errors; they won't have the required fields
     }
-    listingsHTML += `<div class='listing'>
+    listingsHTML += `<div class='listing' data-etsy-id=${listing.listing_id}>
     <a href=${listing.url} target=_blank><div class='title'>${listing.title}</div>
-    <img src='${listing.Images[0].url_170x135}' style="background-color:#${listing.Images[0].hex_code};"></img>
+    <img src='${listing.Images[0].url_170x135}'\
+style='background-color:#${listing.Images[0].hex_code};' title='${listing.description}'"></img>
     <div class='price'>$${listing.price}</div>
     </a><div class='favorite'>💛</div></div>`; // TODO: localize price
   }
