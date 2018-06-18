@@ -5,6 +5,7 @@ const listingEndpoint = `https://openapi.etsy.com/v2/listings/active.js`;
 const listingsFields = ["title", "description", "price", "url", "listing_id"];
 const listingsIncludes = "Images:1:0";
 const listingsSort = "score";
+
 (window as any).loadJSONP = {
   counter: 0,
   ownedBy: "Network.ts",
