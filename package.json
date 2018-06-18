@@ -1,49 +1,43 @@
 {
-  "name": "",
-  "version": "1.0.0",
+  "name": "etsy-search",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
-    "test": "karma start"
+    "test": "karma start",
+    "start": "npm run start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasminenoack/tic-tac-logic.git"
+    "url": "git+https://github.com/harquail/etsy-search.git"
   },
-  "author": "",
+  "author": "Nook Harquail",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jasminenoack/tic-tac-logic/issues"
+    "url": "https://github.com/harquail/etsy-search/issues"
   },
-  "homepage": "https://github.com/jasminenoack/tic-tac-logic#readme",
+  "homepage": "https://github.com/harquail/etsy-search#readme",
   "devDependencies": {
-    "@types/jasmine": "^2.6.0",
-    "@types/jquery": "^3.2.16",
-    "@types/lodash": "^4.14.86",
-    "@types/node": "^8.0.53",
-    "es6-promise": "^4.1.1",
-    "jasmine": "^2.8.0",
-    "jquery": "^3.2.1",
-    "karma": "^1.7.1",
+    "@types/jasmine": "^2.8.8",
+    "@types/node": "^10.3.3",
+    "es6-promise": "^4.2.4",
+    "jasmine": "^3.1.0",
+    "karma": "^2.0.3",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage-istanbul-reporter": "^1.3.0",
-    "karma-jasmine": "^1.1.0",
+    "karma-coverage-istanbul-reporter": "^2.0.1",
+    "karma-jasmine": "^1.1.2",
     "karma-mocha-reporter": "^2.2.5",
-    "karma-typescript": "^3.0.6",
-    "karma-webpack": "^2.0.4",
-    "lodash": "^4.17.4",
-    "node-sass": "^4.5.3",
-    "ts-loader": "^2.3.7",
-    "tslint": "^5.7.0",
-    "typescript": "^2.5.2",
-    "webpack": "^3.6.0"
+    "karma-typescript": "^3.0.12",
+    "karma-webpack": "^3.0.0",
+    "ts-loader": "^4.4.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "css-loader": "^0.28.7",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "nunjucks": "^3.0.1",
-    "nunjucks-loader": "^2.4.8"
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0"
   }
 }
