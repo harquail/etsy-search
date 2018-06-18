@@ -8,7 +8,7 @@ Best viewed in a recent version of Chrome on desktop.
 run  `npm run install`
 
 ## build
-Add an (Etsy API key)[https://www.etsy.com/developers/documentation/getting_started/register] to `src/credentials.ts`
+Add an [Etsy API key](https://www.etsy.com/developers/documentation/getting_started/register) to `src/credentials.ts`
 run `npm run build`
 
 ## test
