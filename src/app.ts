@@ -1,8 +1,9 @@
+import { limit as throttler } from "function-throttler";
 import { Favorite } from "./favorite";
 import { IListings } from "./listingModel";
 import { ListingView } from "./listingView";
 import { Network } from "./network";
-
+const limit = new throttler();
 // TODO: make an app view
 
 /** Search element */
@@ -17,8 +18,7 @@ searchElement.setAttribute("id", "search");
 searchElement.addEventListener("input", () => {
   const query = searchElement.value.match(/\S+/g);
   Network.getEtsyListings(query)
-    .then(updateListings)
-    .then(updateFavorites);
+    .then(limit.throttledUpdate(updateListings, 500));
 }, true);
 
 document.body.appendChild(searchElement);
@@ -42,6 +42,7 @@ const updateListings = (listings: IListings) => {
     listingsHTML += listingView.HTML();
   }
   listingsElement.innerHTML = listingsHTML;
+  updateFavorites();
 };
 document.body.appendChild(listingsElement);
 
@@ -55,6 +56,8 @@ const updateFavorites = () => {
       Favorite.toggleFavorite(id);
       if (Favorite.isFavorite(id)) {
         e.target.classList.add("selected");
+      } else {
+        e.target.classList.remove("selected");
       }
     });
   });
