@@ -1,3 +1,4 @@
+import { Favorite } from "./favorite";
 import { IListing } from "./listingModel";
 
 export class ListingView {
@@ -16,6 +17,8 @@ export class ListingView {
          style='background-color:#${this.listing.Images[0].hex_code};'
          title='${this.listing.description}'"></img>
     <div class='price'>$${this.listing.price}</div>
-    </a><div class='favorite'>💛</div></div>`;  // TODO: localize price
+    </a>
+    <div class='favorite ${Favorite.isFavorite(this.listing.listing_id) ? "selected" : ""}'>💛</div>
+    </div>`;  // TODO: localize price
   }
 }

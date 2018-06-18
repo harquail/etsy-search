@@ -52,6 +52,12 @@ input#search:focus {
   text-shadow: 0 0 0 #aaa;
 }
 
+.listing .favorite.selected {
+  color: transparent;
+  /* css trickery to  color emoji*/
+  text-shadow: 0 0 0 #e00;
+}
+
 .listing .price {
   color: #555;
   margin-top: 4px;

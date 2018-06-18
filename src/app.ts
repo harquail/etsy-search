@@ -1,3 +1,4 @@
+import { Favorite } from "./favorite";
 import { IListings } from "./listingModel";
 import { ListingView } from "./listingView";
 import { Network } from "./network";
@@ -16,7 +17,8 @@ searchElement.setAttribute("id", "search");
 searchElement.addEventListener("input", () => {
   const query = searchElement.value.match(/\S+/g);
   Network.getEtsyListings(query)
-    .then(updateListings);
+    .then(updateListings)
+    .then(updateFavorites);
 }, true);
 
 document.body.appendChild(searchElement);
@@ -42,6 +44,21 @@ const updateListings = (listings: IListings) => {
   listingsElement.innerHTML = listingsHTML;
 };
 document.body.appendChild(listingsElement);
+
+/** Favorites */
+const updateFavorites = () => {
+  const favorites = document.getElementsByClassName("favorite");
+  [].slice.call(favorites).forEach((element) => {
+    element.addEventListener("click", (e) => {
+      const eventTarget = e.target.parentElement;
+      const id = eventTarget.dataset.etsyId;
+      Favorite.toggleFavorite(id);
+      if (Favorite.isFavorite(id)) {
+        e.target.classList.add("selected");
+      }
+    });
+  });
+};
 
 /** Pages */
 const pagesElement = document.createElement("div");
