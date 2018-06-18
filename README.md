@@ -2,9 +2,16 @@
 Base project from:
 https://github.com/jasminenoack/typescript-base
 
+Best viewed in a recent version of Chrome on desktop.
+
+## install
+run  `npm run install`
+
 ## build
+run `npm run build`
 
 ## test
+run `npm run test`
 
 ## background
 
