@@ -8,10 +8,14 @@ Best viewed in a recent version of Chrome on desktop.
 run  `npm run install`
 
 ## build
+Add an (Etsy API key)[https://www.etsy.com/developers/documentation/getting_started/register] to `src/credentials.ts`
 run `npm run build`
 
 ## test
-run `npm run test`
+run `npm run test` (no tests implemented)
+
+## features
+Search for items by typing in the search bar. Favorite items by clicking on the heart.
 
 ## background
 
