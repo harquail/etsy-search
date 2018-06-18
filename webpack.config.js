@@ -1,19 +1,20 @@
 module.exports = {
-  devtool: 'source-map',
+  devtool: "source-map",
   entry: ["./src/app.ts", "./style/index.css"],
-  mode: 'none',
+  mode: "none",
   module: {
-    rules: [
-      { test: /\.ts$/, loader: "ts-loader" },
+    rules: [{
+        loader: "ts-loader",
+        test: /\.ts$/,
+      },
       {
         test: /\.css$/,
         use: [{
           loader: "style-loader", // creates style nodes from JS strings
         }, {
           loader: "css-loader", // translates CSS into CommonJS
-        }
-        ],
-      }
+        }],
+      },
     ],
   },
   output: {
